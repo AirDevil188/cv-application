@@ -6,6 +6,7 @@ export default function PersonalInfo() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [isSubmitted, setSubmit] = useState(false);
+  const [editClick, isClicked] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -15,20 +16,46 @@ export default function PersonalInfo() {
     setEmail(formData.get("email"));
     setPhone(formData.get("phone"));
     setSubmit(true);
+    {
+      editClick ? isClicked(false) : isClicked(true);
+    }
+  }
+
+  function onClick() {
+    {
+      editClick ? isClicked(false) : isClicked(true);
+    }
   }
 
   return (
     <section>
-      <h2>Personal Information:</h2>
-      <div className="form-container">
-        <form action="#" onSubmit={handleSubmit}>
-          <InputField text="First Name:" type="text" name="firstName" id="firstName" />
-          <InputField text="Last Name:" type="text" name="lastName" id="lastName" />
-          <InputField text="Email:" type="mail" name="email" id="email" />
-          <InputField text="Phone Number:" type="number" name="phone" id="phone" />
-          <Button text="Submit" type="submit" />
-        </form>
-      </div>
+      <Button type="edit" text="Edit Your Personal Data" onClick={onClick} />
+      {editClick ? (
+        <>
+          <h2>Personal Information:</h2>
+          <div className="form-container">
+            <form action="#" onSubmit={handleSubmit}>
+              <InputField
+                text="First Name:"
+                type="text"
+                name="firstName"
+                id="firstName"
+                defaultValue={firstName}
+              />
+              <InputField
+                text="Last Name:"
+                type="text"
+                name="lastName"
+                id="lastName"
+                defaultValue={lastName}
+              />
+              <InputField text="Email:" type="mail" name="email" id="email" defaultValue={email} />
+              <InputField text="Phone Number:" type="number" name="phone" id="phone" defaultValue={phone} />
+              <Button text="Submit" type="submit" />
+            </form>
+          </div>
+        </>
+      ) : null}
       <div className="right-Container">
         {isSubmitted ? (
           <CreatePersonalInfo firstName={firstName} lastName={lastName} email={email} phone={phone} />
@@ -46,11 +73,18 @@ function Button({ text, type, onClick }) {
   );
 }
 
-function InputField({ text, type, name, id, value, onChange }) {
+function InputField({ text, type, name, id, value, defaultValue, onChange }) {
   return (
     <>
       <label htmlFor={id}>{text}</label>
-      <input type={type} name={name} id={id} value={value} onChange={onChange}></input>
+      <input
+        type={type}
+        name={name}
+        id={id}
+        value={value}
+        defaultValue={defaultValue}
+        onChange={onChange}
+      ></input>
     </>
   );
 }
