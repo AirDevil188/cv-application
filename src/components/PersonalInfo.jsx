@@ -89,7 +89,7 @@ function InputField({ text, type, name, id, value, defaultValue, onChange }) {
   );
 }
 
-export function CreatePersonalInfo({ firstName, lastName, email, phone }) {
+function CreatePersonalInfo({ firstName, lastName, email, phone }) {
   return (
     <div className="personal-info">
       <p>{firstName + " " + lastName}</p>
