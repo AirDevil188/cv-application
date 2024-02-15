@@ -1,100 +1,48 @@
 import { useState } from "react";
 
-export default function PersonalInfo() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [isSubmitted, setSubmit] = useState(false);
-  const [editClick, isClicked] = useState(false);
-
-  function handleSubmit(e) {
-    e.preventDefault();
+export default function PersonalInfoForm({ userData, setUserData, setSubmit }) {
+  function onSubmit(e) {
     const formData = new FormData(e.target);
-    setFirstName(formData.get("firstName"));
-    setLastName(formData.get("lastName"));
-    setEmail(formData.get("email"));
-    setPhone(formData.get("phone"));
-    setSubmit(true);
-    {
-      editClick ? isClicked(false) : isClicked(true);
-    }
-  }
 
-  function onClick() {
-    {
-      editClick ? isClicked(false) : isClicked(true);
-    }
+    console.log(e.target);
+    e.preventDefault();
+    setUserData({
+      firstName: formData.get("firstName"),
+      lastName: formData.get("lastName"),
+      email: formData.get("email"),
+      phone: formData.get("number"),
+    });
+    setSubmit(true);
   }
 
   return (
-    <section>
-      <Button type="edit" text="Edit Your Personal Data" onClick={onClick} />
-      {editClick ? (
-        <>
-          <h2>Personal Information:</h2>
-          <div className="form-container">
-            <form action="#" onSubmit={handleSubmit}>
-              <InputField
-                text="First Name:"
-                type="text"
-                name="firstName"
-                id="firstName"
-                defaultValue={firstName}
-              />
-              <InputField
-                text="Last Name:"
-                type="text"
-                name="lastName"
-                id="lastName"
-                defaultValue={lastName}
-              />
-              <InputField text="Email:" type="mail" name="email" id="email" defaultValue={email} />
-              <InputField text="Phone Number:" type="number" name="phone" id="phone" defaultValue={phone} />
-              <Button text="Submit" type="submit" />
-            </form>
-          </div>
-        </>
-      ) : null}
-      <div className="right-Container">
-        {isSubmitted ? (
-          <CreatePersonalInfo firstName={firstName} lastName={lastName} email={email} phone={phone} />
-        ) : null}
-      </div>
+    <section className="personal-info">
+      <button type="button">Edit Personal Info</button>
+      <form action="#" onSubmit={onSubmit}>
+        <label htmlFor="firstName">First Name: </label>
+        <input type="text" id="firstName" name="firstName" defaultValue={userData.firstName} />
+        <label htmlFor="lastName">Last Name: </label>
+        <input type="text" id="lastName" name="lastName" defaultValue={userData.lastName} />
+        <label htmlFor="email">Email: </label>
+        <input type="email" id="email" name="email" defaultValue={userData.email} />
+        <label htmlFor="phone">Phone: </label>
+        <input type="number" id="number" name="number" defaultValue={userData.phone} />
+        <button type="submit">Submit</button>
+      </form>
     </section>
   );
 }
 
-function Button({ text, type, onClick }) {
-  return (
-    <button type={type} onClick={onClick}>
-      {text}{" "}
-    </button>
-  );
-}
-
-function InputField({ text, type, name, id, value, defaultValue, onChange }) {
+export function PersonalSection({ formData, submit }) {
   return (
     <>
-      <label htmlFor={id}>{text}</label>
-      <input
-        type={type}
-        name={name}
-        id={id}
-        value={value}
-        defaultValue={defaultValue}
-        onChange={onChange}
-      ></input>
+      {submit ? (
+        <div className="personal-info">
+          <p>{formData.firstName + " " + formData.lastName}</p>
+          <p>{formData.email}</p>
+          <p>{formData.phone}</p>
+        </div>
+      ) : null}
     </>
-  );
-}
-
-function CreatePersonalInfo({ firstName, lastName, email, phone }) {
-  return (
-    <div className="personal-info">
-      <p>{firstName + " " + lastName}</p>
-      <p>{email}</p>
-      <p>{phone}</p>
-    </div>
   );
 }
