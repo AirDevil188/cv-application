@@ -60,7 +60,9 @@ export default function PersonalInfoForm({ userData, setUserData, submit, setSub
               <input type="email" id="email" name="email" defaultValue={userData.email} required={true} />
               <label htmlFor="phone">Phone: </label>
               <input type="number" id="number" name="number" defaultValue={userData.phone} required={true} />
-              <button type="submit">Submit</button>
+              <div className="form-button-container">
+                <button type="submit">Submit</button>
+              </div>
             </form>
           </div>
         ) : null}

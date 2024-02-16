@@ -1,5 +1,6 @@
 :root {
   --background-color: #f3f4f6;
+  --highlight-color: #15346d;
 }
 
 html {
@@ -24,9 +25,33 @@ body {
   background-color: var(--background-color);
 }
 
+button {
+  cursor: pointer;
+  text-align: center;
+  border-radius: 11px;
+  padding: 15px;
+  border: none;
+  background: var(--highlight-color);
+  color: #fff;
+  text-transform: uppercase;
+}
+
 h3 {
   margin: 0;
   padding: 0;
+}
+
+form {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 1rem;
+}
+
+input {
+  padding: 10px;
+  border: none;
+  border-radius: 12px;
+  background-color: #f3f4f6;
 }
 
 #root {
@@ -34,37 +59,41 @@ h3 {
   flex-flow: column wrap;
 }
 
+.main-content {
+  display: flex;
+  flex-flow: column wrap;
+  padding: 1rem;
+}
+
 .forms-section {
   display: flex;
   flex-flow: column wrap;
-  gap: 1rem;
+  gap: 12px;
 }
 
 .form-container {
+  padding: 1rem;
   background-color: #fff;
+  border-radius: 12px;
 }
 
-input {
-  border: none;
-  min-width: 300px;
-  height: auto;
-  border-radius: 15px;
-  background-color: #f3f4f6;
-}
-
-.form-container > form {
+.personal-form,
+.education-form,
+.experience-form {
   display: flex;
   flex-flow: column wrap;
-  align-items: flex-start;
 }
 
-.personal-info > div,
-.education-date > div,
-.experience-date > div {
+.form-button-container {
   display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-}
-.right-container {
   flex-flow: column wrap;
+  align-items: stretch;
+}
+
+.personal-form > button,
+.education-form > button,
+.experience-form > button {
+  display: flex;
+  align-self: center;
+  padding: 20px;
 }

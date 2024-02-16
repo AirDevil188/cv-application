@@ -29,32 +29,34 @@ function App() {
 
   return (
     <>
-      <section className="forms-section">
-        <h2>Insert your data:</h2>
-        <PersonalInfoForm
-          userData={userData}
-          setUserData={setUserData}
-          submit={submit}
-          setSubmit={setSubmit}
-        />
-        <EducationInfoForm
-          userData={userData}
-          setUserData={setUserData}
-          submit={submit}
-          setSubmit={setSubmit}
-        />
-        <ExperienceInfoForm
-          userData={userData}
-          setUserData={setUserData}
-          submit={submit}
-          setSubmit={setSubmit}
-        />
-      </section>
-      <section className="display-data">
-        <PersonalSection submit={submit} formData={userData} />
-        <EducationSection submit={submit} formData={userData} />
-        <ExperienceSection submit={submit} formData={userData} />
-      </section>
+      <main className="main-content">
+        <section className="forms-section">
+          <h2>Insert your data:</h2>
+          <PersonalInfoForm
+            userData={userData}
+            setUserData={setUserData}
+            submit={submit}
+            setSubmit={setSubmit}
+          />
+          <EducationInfoForm
+            userData={userData}
+            setUserData={setUserData}
+            submit={submit}
+            setSubmit={setSubmit}
+          />
+          <ExperienceInfoForm
+            userData={userData}
+            setUserData={setUserData}
+            submit={submit}
+            setSubmit={setSubmit}
+          />
+        </section>
+        <section className="display-data">
+          <PersonalSection submit={submit} formData={userData} />
+          <EducationSection submit={submit} formData={userData} />
+          <ExperienceSection submit={submit} formData={userData} />
+        </section>
+      </main>
     </>
   );
 }

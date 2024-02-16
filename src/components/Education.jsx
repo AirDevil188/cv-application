@@ -62,7 +62,9 @@ export default function EducationInfoForm({ userData, setUserData, submit, setSu
                 defaultValue={userData.endDate}
                 required={true}
               />
-              <button type="submit">Submit</button>
+              <div className="form-button-container">
+                <button type="submit">Submit</button>
+              </div>
             </form>
           </div>
         ) : null}

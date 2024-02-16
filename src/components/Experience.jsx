@@ -61,6 +61,7 @@ export default function ExperienceInfoForm({ userData, setUserData, submit, setS
               name="responsibilities"
               defaultValue={userData.responsibilities}
             />
+            <div className="form-button-container"></div>
             <button type="submit">Submit</button>
           </form>
         </div>
