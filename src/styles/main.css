@@ -1,3 +1,7 @@
+:root {
+  --background-color: #f3f4f6;
+}
+
 html {
   box-sizing: border-box;
 }
@@ -8,9 +12,16 @@ html {
   box-sizing: inherit;
 }
 
+@font-face {
+  font-family: "Roboto", sans-serif;
+  src: url(../fonts/roboto-regular.woff2);
+}
+
 body {
   margin: 0;
   padding: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: var(--background-color);
 }
 
 h3 {
@@ -27,6 +38,18 @@ h3 {
   display: flex;
   flex-flow: column wrap;
   gap: 1rem;
+}
+
+.form-container {
+  background-color: #fff;
+}
+
+input {
+  border: none;
+  min-width: 300px;
+  height: auto;
+  border-radius: 15px;
+  background-color: #f3f4f6;
 }
 
 .form-container > form {

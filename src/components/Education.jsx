@@ -27,7 +27,7 @@ export default function EducationInfoForm({ userData, setUserData, submit, setSu
 
   return (
     <>
-      <div className="form-container education">
+      <div className="education-form">
         {submit.educationInfoForm ? (
           <button type="button" onClick={onClick}>
             Edit Education Info
@@ -39,23 +39,32 @@ export default function EducationInfoForm({ userData, setUserData, submit, setSu
         )}
 
         {active ? (
-          <form action="#" onSubmit={onSubmit}>
-            <label htmlFor="school">School: </label>
-            <input type="text" id="school" name="school" defaultValue={userData.school} required={true} />
-            <label htmlFor="degree">Degree: </label>
-            <input type="text" name="degree" id="degree" defaultValue={userData.degree} required={true} />
-            <label htmlFor="startDate">From: </label>
-            <input
-              type="date"
-              name="startDate"
-              id="startDate"
-              defaultValue={userData.startDate}
-              required={true}
-            />
-            <label htmlFor="endDate">Until: </label>
-            <input type="date" id="endDate" name="endDate" defaultValue={userData.endDate} required={true} />
-            <button type="submit">Submit</button>
-          </form>
+          <div className="form-container">
+            <form action="#" onSubmit={onSubmit}>
+              <h2>Education Info:</h2>
+              <label htmlFor="school">School: </label>
+              <input type="text" id="school" name="school" defaultValue={userData.school} required={true} />
+              <label htmlFor="degree">Degree: </label>
+              <input type="text" name="degree" id="degree" defaultValue={userData.degree} required={true} />
+              <label htmlFor="startDate">From: </label>
+              <input
+                type="date"
+                name="startDate"
+                id="startDate"
+                defaultValue={userData.startDate}
+                required={true}
+              />
+              <label htmlFor="endDate">Until: </label>
+              <input
+                type="date"
+                id="endDate"
+                name="endDate"
+                defaultValue={userData.endDate}
+                required={true}
+              />
+              <button type="submit">Submit</button>
+            </form>
+          </div>
         ) : null}
       </div>
     </>

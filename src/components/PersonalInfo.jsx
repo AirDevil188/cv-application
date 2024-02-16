@@ -26,7 +26,7 @@ export default function PersonalInfoForm({ userData, setUserData, submit, setSub
 
   return (
     <>
-      <div className="form-container personal">
+      <div className="personal-form">
         {submit.personalInfoForm ? (
           <button type="button" onClick={onClick}>
             Edit Personal Info
@@ -37,29 +37,32 @@ export default function PersonalInfoForm({ userData, setUserData, submit, setSub
           </button>
         )}
         {active ? (
-          <form action="#" onSubmit={onSubmit}>
-            <label htmlFor="firstName">First Name: </label>
-            <input
-              type="text"
-              id="firstName"
-              name="firstName"
-              defaultValue={userData.firstName}
-              required={true}
-            />
-            <label htmlFor="lastName">Last Name: </label>
-            <input
-              type="text"
-              id="lastName"
-              name="lastName"
-              defaultValue={userData.lastName}
-              required={true}
-            />
-            <label htmlFor="email">Email: </label>
-            <input type="email" id="email" name="email" defaultValue={userData.email} required={true} />
-            <label htmlFor="phone">Phone: </label>
-            <input type="number" id="number" name="number" defaultValue={userData.phone} required={true} />
-            <button type="submit">Submit</button>
-          </form>
+          <div className="form-container">
+            <form action="#" onSubmit={onSubmit}>
+              <h2>Personal Info:</h2>
+              <label htmlFor="firstName">First Name: </label>
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                defaultValue={userData.firstName}
+                required={true}
+              />
+              <label htmlFor="lastName">Last Name: </label>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                defaultValue={userData.lastName}
+                required={true}
+              />
+              <label htmlFor="email">Email: </label>
+              <input type="email" id="email" name="email" defaultValue={userData.email} required={true} />
+              <label htmlFor="phone">Phone: </label>
+              <input type="number" id="number" name="number" defaultValue={userData.phone} required={true} />
+              <button type="submit">Submit</button>
+            </form>
+          </div>
         ) : null}
       </div>
     </>
