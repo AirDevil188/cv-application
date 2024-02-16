@@ -63,6 +63,7 @@ input {
   display: flex;
   flex-flow: column wrap;
   padding: 1rem;
+  gap: 1rem;
 }
 
 .forms-section {
@@ -82,6 +83,7 @@ input {
 .experience-form {
   display: flex;
   flex-flow: column wrap;
+  gap: 1rem;
 }
 
 .form-button-container {
@@ -96,4 +98,22 @@ input {
   display: flex;
   align-self: center;
   padding: 20px;
+}
+
+@media (min-width: 850px) {
+  .main-content {
+    flex-flow: row wrap;
+    min-height: 100vh;
+  }
+
+  .forms-section {
+    min-width: 50vh;
+  }
+
+  .display-data {
+    display: flex;
+    flex-flow: column wrap;
+    min-width: 50vw;
+    justify-content: space-around;
+  }
 }
