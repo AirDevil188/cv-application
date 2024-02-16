@@ -26,7 +26,7 @@ export default function PersonalInfoForm({ userData, setUserData, submit, setSub
 
   return (
     <>
-      <section className="personal-info">
+      <div className="form-container personal">
         {submit.personalInfoForm ? (
           <button type="button" onClick={onClick}>
             Edit Personal Info
@@ -39,31 +39,49 @@ export default function PersonalInfoForm({ userData, setUserData, submit, setSub
         {active ? (
           <form action="#" onSubmit={onSubmit}>
             <label htmlFor="firstName">First Name: </label>
-            <input type="text" id="firstName" name="firstName" defaultValue={userData.firstName} />
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              defaultValue={userData.firstName}
+              required={true}
+            />
             <label htmlFor="lastName">Last Name: </label>
-            <input type="text" id="lastName" name="lastName" defaultValue={userData.lastName} />
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              defaultValue={userData.lastName}
+              required={true}
+            />
             <label htmlFor="email">Email: </label>
-            <input type="email" id="email" name="email" defaultValue={userData.email} />
+            <input type="email" id="email" name="email" defaultValue={userData.email} required={true} />
             <label htmlFor="phone">Phone: </label>
-            <input type="number" id="number" name="number" defaultValue={userData.phone} />
+            <input type="number" id="number" name="number" defaultValue={userData.phone} required={true} />
             <button type="submit">Submit</button>
           </form>
         ) : null}
-      </section>
+      </div>
     </>
   );
 }
 
-export function PersonalSection({ formData, submit }) {
+export function PersonalSection({ formData }) {
   return (
-    <>
-      {submit.personalInfoForm ? (
-        <div className="personal-info">
-          <p>{formData.firstName + " " + formData.lastName}</p>
-          <p>{formData.email}</p>
-          <p>{formData.phone}</p>
-        </div>
-      ) : null}
-    </>
+    <div className="personal-info">
+      <div className="full-name">
+        <h3>Full Name:</h3>
+
+        <p>{formData.firstName + " " + formData.lastName}</p>
+      </div>
+      <div className="email">
+        <h3>Email:</h3>
+        <p>{formData.email}</p>
+      </div>
+      <div className="phone">
+        <h3>Phone:</h3>
+        <p>{formData.phone}</p>
+      </div>
+    </div>
   );
 }
