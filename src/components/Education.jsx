@@ -2,6 +2,7 @@ import { useState } from "react";
 
 export default function EducationInfoForm({ userData, setUserData, submit, setSubmit }) {
   const [active, setActive] = useState(false);
+
   function onSubmit(e) {
     const formData = new FormData(e.target);
     e.preventDefault();
@@ -23,6 +24,7 @@ export default function EducationInfoForm({ userData, setUserData, submit, setSu
       active ? setActive(false) : setActive(true);
     }
   }
+
   return (
     <>
       <section>
