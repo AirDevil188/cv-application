@@ -23,7 +23,7 @@ export default function ExperienceInfoForm({ userData, setUserData, submit, setS
   }
 
   return (
-    <section>
+    <div className="form-container experience">
       {submit.experienceInfoForm ? (
         <button type="button" onClick={onClick}>
           Edit Experience Information
@@ -37,9 +37,21 @@ export default function ExperienceInfoForm({ userData, setUserData, submit, setS
       {active ? (
         <form action="#" onSubmit={onSubmit}>
           <label htmlFor="companyName">Company name: </label>
-          <input type="text" id="companyName" name="companyName" defaultValue={userData.companyName} />
+          <input
+            type="text"
+            id="companyName"
+            name="companyName"
+            defaultValue={userData.companyName}
+            required={true}
+          />
           <label htmlFor="positionTitle">Position Title: </label>
-          <input type="text" id="positionTitle" name="poistionTitle" defaultValue={userData.position} />
+          <input
+            type="text"
+            id="positionTitle"
+            name="positionTitle"
+            defaultValue={userData.position}
+            required={true}
+          />
           <label htmlFor="responsibilities">Responsibilities: </label>
           <input
             type="text"
@@ -50,20 +62,25 @@ export default function ExperienceInfoForm({ userData, setUserData, submit, setS
           <button type="submit">Submit</button>
         </form>
       ) : null}
-    </section>
+    </div>
   );
 }
 
-export function ExperienceSection({ formData, submit }) {
+export function ExperienceSection({ formData }) {
   return (
-    <>
-      {submit.experienceInfoForm ? (
-        <div className="experience-info">
-          <p>{formData.companyName}</p>
-          <p>{formData.position}</p>
-          <p>{formData.responsibilities}</p>
-        </div>
-      ) : null}
-    </>
+    <div className="experience-info">
+      <div className="company">
+        <h3>Company:</h3>
+        <p>{formData.companyName}</p>
+      </div>
+      <div className="position">
+        <h3>Position:</h3>
+        <p>{formData.position}</p>
+      </div>
+      <div className="responsibilities">
+        <h3>Responsibilities:</h3>
+        <p>{formData.responsibilities}</p>
+      </div>
+    </div>
   );
 }
