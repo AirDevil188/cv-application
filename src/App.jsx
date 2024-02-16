@@ -20,6 +20,7 @@ function App() {
     position: "",
     responsibilities: "",
   });
+
   const [submit, setSubmit] = useState({
     personalInfoForm: false,
     educationInfoForm: false,
@@ -29,6 +30,7 @@ function App() {
   return (
     <>
       <section className="forms-section">
+        <h2>Insert your data:</h2>
         <PersonalInfoForm
           userData={userData}
           setUserData={setUserData}
@@ -48,7 +50,7 @@ function App() {
           setSubmit={setSubmit}
         />
       </section>
-      <section className="view">
+      <section className="display-data">
         <PersonalSection submit={submit} formData={userData} />
         <EducationSection submit={submit} formData={userData} />
         <ExperienceSection submit={submit} formData={userData} />

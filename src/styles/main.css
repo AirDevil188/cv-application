@@ -13,9 +13,20 @@ body {
   padding: 0;
 }
 
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
 #root {
   display: flex;
   flex-flow: column wrap;
+}
+
+.forms-section {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 1rem;
 }
 
 .form-container > form {
@@ -24,6 +35,13 @@ body {
   align-items: flex-start;
 }
 
+.personal-info > div,
+.education-date > div,
+.experience-date > div {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
 .right-container {
   flex-flow: column wrap;
 }
