@@ -27,9 +27,15 @@ export default function PersonalInfoForm({ userData, setUserData, submit, setSub
   return (
     <>
       <section className="personal-info">
-        <button type="button" onClick={onClick}>
-          Edit Personal Info
-        </button>
+        {submit.personalInfoForm ? (
+          <button type="button" onClick={onClick}>
+            Edit Personal Info
+          </button>
+        ) : (
+          <button type="button" onClick={onClick}>
+            Create Personal Info
+          </button>
+        )}
         {active ? (
           <form action="#" onSubmit={onSubmit}>
             <label htmlFor="firstName">First Name: </label>

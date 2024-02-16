@@ -24,9 +24,16 @@ export default function ExperienceInfoForm({ userData, setUserData, submit, setS
 
   return (
     <section>
-      <button type="button" onClick={onClick}>
-        Edit Experience Information
-      </button>
+      {submit.experienceInfoForm ? (
+        <button type="button" onClick={onClick}>
+          Edit Experience Information
+        </button>
+      ) : (
+        <button type="button" onClick={onClick}>
+          Create Experience Information
+        </button>
+      )}
+
       {active ? (
         <form action="#" onSubmit={onSubmit}>
           <label htmlFor="companyName">Company name: </label>

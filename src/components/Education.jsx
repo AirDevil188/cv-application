@@ -28,9 +28,16 @@ export default function EducationInfoForm({ userData, setUserData, submit, setSu
   return (
     <>
       <section>
-        <button type="button" onClick={onClick}>
-          Edit Education Info
-        </button>
+        {submit.educationInfoForm ? (
+          <button type="button" onClick={onClick}>
+            Edit Education Info
+          </button>
+        ) : (
+          <button type="button" onClick={onClick}>
+            Create Education Info
+          </button>
+        )}
+
         {active ? (
           <form action="#" onSubmit={onSubmit}>
             <label htmlFor="school">School: </label>
