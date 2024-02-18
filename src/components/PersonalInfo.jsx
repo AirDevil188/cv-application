@@ -76,16 +76,15 @@ export function PersonalSection({ formData }) {
     <div className="personal-info">
       <div className="full-name">
         <h3>Full Name:</h3>
-
         <p>{formData.firstName + " " + formData.lastName}</p>
       </div>
       <div className="email">
         <h3>Email:</h3>
-        <p>{formData.email}</p>
+        <p key={formData.email}>{formData.email}</p>
       </div>
       <div className="phone">
         <h3>Phone:</h3>
-        <p>{formData.phone}</p>
+        <p key={formData.phone}>{formData.phone}</p>
       </div>
     </div>
   );
